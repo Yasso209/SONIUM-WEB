@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SONIUM</title>
+<meta name="description" content="SONIUM is a challenge app for you and your crew. Check off daily tasks, build your streak and climb the ranking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap">
+<style>
+:root{
+  --bg:#0B0B0C; --bg2:#101012; --surface:#161618; --surface2:#222226;
+  --line:#26262A; --text:#F4F4F2; --muted:#A0A0A6; --faint:#8A8A90;
+  --accent:#C9E94F; --ink:#0B0B0C;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* nav */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;padding-bottom:20px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;font-size:22px}
+.logo{width:44px;height:44px;border-radius:13px;background:var(--accent);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;letter-spacing:-.04em}
+.nav nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px}
+.nav nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted)}
+.nav nav a:hover{color:var(--text)}
+.pill{background:var(--accent);color:var(--ink)!important;font-weight:700!important;padding:12px 22px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+
+/* hero */
+.hero{background:radial-gradient(60% 55% at 78% 35%,rgba(201,233,79,.14),rgba(11,11,12,0) 70%)}
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:clamp(24px,5vw,64px);padding-bottom:clamp(48px,7vw,96px)}
+.hero-text{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.eyebrow{align-self:flex-start;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid #2E2E33;border-radius:999px;padding:8px 16px}
+h1{margin:0;font-size:clamp(44px,7vw,88px);line-height:1.02;font-weight:800;letter-spacing:-.03em;text-wrap:balance}
+h1 em{display:block;font-style:italic;color:var(--accent)}
+.lead{margin:0;font-size:clamp(18px,2vw,22px);line-height:1.5;color:var(--muted);max-width:520px}
+.lead b{color:var(--text);font-weight:600;font-style:italic}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.store{display:inline-flex;align-items:center;gap:12px;padding:12px 24px;min-height:58px;border-radius:18px;text-decoration:none;border:1.5px solid transparent}
+.store small{display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+.store strong{display:block;font-size:19px;font-weight:800;line-height:1.15}
+.store.primary{background:var(--accent);color:var(--ink)}
+.store.ghost{border-color:#3A3A40;color:var(--text)}
+.store.dark{background:var(--ink);color:var(--text)}
+.store.soon{border-color:#3A3A40;color:var(--muted);cursor:default}
+.note{margin:0;font-size:14px;color:var(--faint);max-width:520px;line-height:1.5}
+.hero-art{flex:1 1 440px;min-width:0;display:flex;justify-content:center;align-items:flex-start;gap:20px}
+
+/* phone frame */
+.phone{border-radius:42px;padding:8px;background:#1C1C1F;border:1px solid #2E2E33;box-shadow:0 40px 80px rgba(0,0,0,.55)}
+.phone img{display:block;width:100%;height:auto;border-radius:34px}
+.hero-art .phone:nth-child(1){flex:0 1 260px}
+.hero-art .phone:nth-child(2){flex:0 1 230px;margin-top:72px}
+
+/* sections */
+section{scroll-margin-top:12px}
+.block{padding-top:clamp(40px,6vw,88px);padding-bottom:clamp(40px,6vw,88px);display:flex;flex-direction:column;gap:40px}
+.head{display:flex;flex-direction:column;gap:14px;max-width:680px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h2{margin:0;font-size:clamp(32px,4.5vw,52px);line-height:1.08;font-weight:800;letter-spacing:-.025em;text-wrap:balance}
+.cards{display:flex;flex-wrap:wrap;gap:20px}
+.card{flex:1 1 260px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.card .ic{width:52px;height:52px;border-radius:16px;background:var(--surface2);color:var(--accent);display:flex;align-items:center;justify-content:center}
+.card h3{margin:0;font-size:21px;font-weight:700}
+.card p{margin:0;font-size:16px;line-height:1.55;color:var(--muted)}
+
+.screens{background:var(--bg2);border-top:1px solid #1E1E22;border-bottom:1px solid #1E1E22}
+.shots{display:flex;flex-wrap:wrap;justify-content:center;gap:36px 28px}
+.shot{margin:0;flex:1 1 220px;max-width:280px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.shot .phone{border-radius:40px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.shot .phone img{border-radius:32px}
+.shot strong{display:block;font-size:18px;font-weight:700;margin-bottom:6px}
+.shot span{font-size:15px;line-height:1.5;color:var(--muted)}
+
+.steps{display:flex;flex-wrap:wrap;gap:20px}
+.step{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:16px;padding:8px 0}
+.step .n{width:48px;height:48px;border-radius:999px;background:var(--accent);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.step h3{margin:0;font-size:22px;font-weight:700}
+.step p{margin:0;font-size:16px;line-height:1.55;color:var(--muted)}
+
+/* cta */
+.cta-wrap{padding-bottom:clamp(40px,6vw,88px)}
+.cta{background:var(--accent);color:var(--ink);border-radius:40px;overflow:hidden;padding:clamp(32px,6vw,72px) clamp(24px,5vw,72px) 0;display:flex;flex-wrap:wrap;align-items:stretch;gap:32px}
+.cta-text{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:24px;padding-bottom:clamp(32px,6vw,72px)}
+.cta h2 em{font-style:italic}
+.cta p{margin:0;font-size:18px;line-height:1.5;max-width:460px;color:#26300A}
+.cta .store small{color:var(--muted);opacity:1}
+.cta-art{flex:0 1 300px;min-width:0;align-self:flex-end;height:380px;overflow:hidden;margin:0 auto;width:100%;max-width:300px}
+.cta-art .phone{border-radius:40px 40px 0 0;padding-bottom:0;border-bottom:0;box-shadow:0 -10px 60px rgba(0,0,0,.35)}
+.cta-art .phone img{border-radius:32px 32px 0 0}
+
+footer{border-top:1px solid #1E1E22}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:32px;padding-bottom:32px}
+.fl{display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:14px;color:var(--faint)}
+.fl .logo{width:36px;height:36px;border-radius:11px;font-size:21px}
+.fl b{color:var(--text);font-size:18px;font-weight:800}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+footer nav a{font-size:14px;color:var(--muted);text-decoration:none}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="wrap nav">
+  <a class="brand" href="#top"><span class="logo">S.</span>SONIUM</a>
+  <nav aria-label="Main">
+    <a href="#features">Features</a>
+    <a href="#screens">Screens</a>
+    <a href="#how">How it works</a>
+    <a class="pill" href="#download">Download</a>
+  </nav>
+</header>
+
+<main>
+<section id="top" class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Beta &middot; Android</span>
+      <h1>7-Day <em>Challenge.</em></h1>
+      <p class="lead"><b>Make it count.</b> Check off your daily tasks, build your streak and climb the crew ranking. SONIUM keeps you and your friends showing up every day.</p>
+      <div class="btns">
+        <a class="store primary" href="https://github.com/Yasso209/SOn--SONIUM/releases/latest/download/sonium.apk">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>
+          <span><small>Download for</small><strong>Android (APK)</strong></span>
+        </a>
+        <span class="store soon" aria-disabled="true">
+          <span><small>iPhone</small><strong>Coming soon</strong></span>
+        </span>
+      </div>
+      <p class="note">This is a test version. If Android asks, allow installs from your browser to open the APK.</p>
+    </div>
+    <div class="hero-art">
+      <div class="phone"><img src="assets/home.jpg" alt="SONIUM home screen with the 7-Day Challenge and daily tasks" width="720" height="1560"></div>
+      <div class="phone"><img src="assets/stats.jpg" alt="SONIUM stats screen with tasks done, streak and weekly performance" width="720" height="1560"></div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="wrap block">
+  <div class="head">
+    <span class="kicker">Features</span>
+    <h2>Everything you need to finish the challenge.</h2>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></span>
+      <h3>Daily tasks</h3>
+      <p>Drink water, read, work out, plan tomorrow. Tick each task off and watch your progress ring fill up.</p>
+    </div>
+    <div class="card">
+      <span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V12"/><path d="M12 20V5"/><path d="M19 20v-9"/></svg></span>
+      <h3>Stats that keep you going</h3>
+      <p>Tasks done, day streak and total points at a glance, plus a weekly chart of how you are trending.</p>
+    </div>
+    <div class="card">
+      <span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16 14c2.8 0 5 1.8 5 4.5"/></svg></span>
+      <h3>Stronger together</h3>
+      <p>Start a crew, invite friends and pool your points. See who finished what and where your crew ranks.</p>
+    </div>
+    <div class="card">
+      <span class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg></span>
+      <h3>Made your way</h3>
+      <p>Pick your theme and language, and choose which alerts reach you. Your data stays under your control.</p>
+    </div>
+  </div>
+</section>
+
+<section id="screens" class="screens">
+  <div class="wrap block">
+    <div class="head">
+      <span class="kicker">Inside the app</span>
+      <h2>Four screens. One simple routine.</h2>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <div class="phone"><img src="assets/home.jpg" alt="Home screen: challenge progress and today's tasks" width="720" height="1560" loading="lazy"></div>
+        <figcaption><strong>Home</strong><span>Your challenge day, progress and the tasks to tick off today.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="phone"><img src="assets/stats.jpg" alt="Stats screen: tasks done, streak, points and weekly chart" width="720" height="1560" loading="lazy"></div>
+        <figcaption><strong>Stats</strong><span>Streaks, points and a weekly chart of how you are doing.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="phone"><img src="assets/crew.jpg" alt="Crew screen: members, crew points, rank and activity" width="720" height="1560" loading="lazy"></div>
+        <figcaption><strong>Crew</strong><span>Members, crew points, rank and a feed of who did what.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="phone"><img src="assets/settings.jpg" alt="Settings screen: profile, notifications, appearance, privacy, language" width="720" height="1560" loading="lazy"></div>
+        <figcaption><strong>Settings</strong><span>Profile, alerts, theme, privacy and language in one place.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="wrap block">
+  <div class="head">
+    <span class="kicker">How it works</span>
+    <h2>From first task to the top of the ranking.</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h3>Join the challenge</h3><p>Download SONIUM, create your profile and start Day 1.</p></div>
+    <div class="step"><span class="n">2</span><h3>Finish your tasks</h3><p>Complete the daily tasks, keep your streak alive and earn points with every check mark.</p></div>
+    <div class="step"><span class="n">3</span><h3>Climb with your crew</h3><p>Invite friends, share the points and push your crew up the ranking.</p></div>
+  </div>
+</section>
+
+<section id="download" class="wrap cta-wrap">
+  <div class="cta">
+    <div class="cta-text">
+      <h2>Ready to <em>make it count?</em></h2>
+      <p>Get the latest SONIUM test build, grab your crew and start today.</p>
+      <div class="btns">
+        <a class="store dark" href="https://github.com/Yasso209/SOn--SONIUM/releases/latest/download/sonium.apk">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg>
+          <span><small>Download for</small><strong>Android (APK)</strong></span>
+        </a>
+        <a class="store dark" href="https://github.com/Yasso209/SOn--SONIUM/releases/latest">
+          <span><small>All versions</small><strong>Latest release</strong></span>
+        </a>
+      </div>
+    </div>
+    <div class="cta-art">
+      <div class="phone"><img src="assets/crew.jpg" alt="SONIUM crew screen" width="720" height="1560" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl"><span class="logo">S.</span><b>SONIUM</b><span>&copy; 2026. All rights reserved.</span></div>
+    <nav aria-label="Footer">
+      <a href="https://github.com/Yasso209/SOn--SONIUM">GitHub</a>
+      <a href="https://github.com/Yasso209/SOn--SONIUM/releases">Releases</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
